@@ -28,9 +28,9 @@
 </ul>
 
 <p>Example Image Element</p>
-<code>
+<pre><code>
 	<img class="responsive-image" src="http://www.placehold.it/320x320" data-threetwenty="http://www.placehold.it/320x320" data-sevensixeight="http://www.placehold.it/768x768" data-tentwentyfour="http://www.placehold.it/1024x768" data-twelvetwenty="http://www.placehold.it/1220x768" data-fourteenforty="http://www.placehold.it/1440x768">
-</code>
+</code></pre>
 
 <p>Example BackgroundImage Element</p>
 <code>
