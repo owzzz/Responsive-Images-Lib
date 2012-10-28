@@ -1,0 +1,14 @@
+.wrapper {
+	min-width:320px;
+	margin:0 auto;
+}
+
+.main section {
+	height:320px;
+}
+
+@media screen and (min-width: 768px) {
+	.main section {
+		min-height:768px;
+	}
+}

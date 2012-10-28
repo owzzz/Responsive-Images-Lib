@@ -2,8 +2,7 @@
 	'use strict';
 
 	window.APPNAMESPACE = window.APPNAMESPACE || {};
-	window.APPNAMESPACE.Components = window.APPNAMESPACE.Components || {};
-	window.APPNAMESPACE.Components.Responsive = window.APPNAMESPACE.Components.Responsive || {};
+	window.APPNAMESPACE.Responsive = window.APPNAMESPACE.Responsive || {};
 
 		var ResponsiveImages = function(elem, options) {
 			var $this = $(elem);
@@ -34,7 +33,7 @@
 
 			var getBrowserSize = function() {
 				//Check to see if matchmedia lib is loaded and that the current browser is supported
-				if( window.matchMedia && (window.Audi.Utils.getIEVersion() === -1) ){
+				if( window.matchMedia && (window.APPNAMESPACE.Utils.getIEVersion() === -1) ){
 					if (matchMedia('only screen and (max-width: 320px)').matches) {
 						  setImage(defaults["threetwenty"]);
 					} else if (matchMedia('only screen and (max-width: 768px)').matches) {
@@ -87,19 +86,20 @@
 			}();
 
 			return {
-				runInit: initalise,
+				init: initalise,
 				getElemType: getElemType
 			};
 		};
 
 	var getResponsiveImages = (function() {
 		var $responsiveImages = $('.responsive-image');
-		if(responsiveImages){
+		if($responsiveImages){
 			$responsiveImages.each(function(i, elem) {
-				window.APPNAMESPACE.Components.Responsive[i] = new ResponsiveImages(elem, $(elem).data());
+				console.log(i, elem);
+				window.APPNAMESPACE.Responsive[i] = new ResponsiveImages(elem, $(elem).data());
 			});
 		}
-	}();
+	})();
 
 
  })(window, document, jQuery);
