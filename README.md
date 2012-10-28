@@ -25,7 +25,8 @@
 <ul>
 	<li>data-threetwenty="path/to/image"</li>
 	<li>data-sevensixeight="path/to/image"</li>
-	<li>data-threetwenty="path/to/image"</li>
-	<li>data-threetwenty="path/to/image"</li>
+	<li>data-tentwentyfour="path/to/image"</li>
+	<li>data-twelvetwenty="path/to/image"</li>
+	<li>data-fourteenforty="path/to/image"</li>
 </ul>
 
