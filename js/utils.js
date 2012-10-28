@@ -2,7 +2,7 @@
 	'use strict';
 
 	window.APPNAMESPACE = window.APPNAMESPACE || {};
-	window.APPNAMESPACE.Utils = window.APPNAMESPACE.Util || {};
+	window.APPNAMESPACE.Utils = window.APPNAMESPACE.Utils || {};
 
 	var Utils = function() {
 
