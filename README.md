@@ -1,7 +1,7 @@
 <h1>Responsive Images Library</h1>
 ==================================
 
-<p>Library for delivering images based on screen size. Uses matchmedia.js for detecting brakpoints falling back to standard JS .innerwidth() for getting screen width.</p>
+<p>Library for delivering images based on screen size. Uses matchmedia.js for detecting breakpoints falling back to standard JS .innerwidth() for getting screen width.</p>
 
 <p>It currently supports the breakpoints:</p>
 
