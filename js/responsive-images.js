@@ -26,7 +26,6 @@
 			};
 
 			var getBrowserSize = function() {
-
 				if(Modernizr.mq && (window.APPNAMESPACE.Utils.getIEVersion() === -1) ){
 					for (var key in defaults){
 						if (parseInt(key) !== NaN && Modernizr.mq('only screen and (max-width: ' + key + 'px)')) {
@@ -46,10 +45,21 @@
 			};
 
 			var setImage = function(imagePath) {
+				if(getPixelRatio() >= 2) {
+					//TODO : Add support for Retina Images
+				} 
 				if(defaults.elemType === "img") {
 					$this.attr('src', imagePath);
 				} else {
 					$this.css("background-image", "url(" + imagePath + ")");
+				}
+			};
+
+			var getPixelRatio = function() {
+				if(window.devicePixelRatio) {
+					return window.devicePixelRatio;
+				} else {
+					return -1;
 				}
 			};
 
@@ -66,16 +76,17 @@
 
 			return {
 				init: initalise,
-				getElemType: getElemType
+				getElemType: getElemType,
+				getPixelRatio: getPixelRatio
 			};
 		};
 
 	var getResponsiveImages = (function() {
 		var $responsiveImages = $('.responsive-image');
 		if($responsiveImages){
-			$responsiveImages.each(function(i, elem) {
-				window.APPNAMESPACE.Responsive[i] = new ResponsiveImages(elem, $(elem).data());
-			});
+			for (var i = 0, elem = $responsiveImages, len = elem.length; i < len; i++) {
+			   window.APPNAMESPACE.Responsive[i] = new ResponsiveImages(elem[i], $(elem).data());
+			};
 		}
 	})();
 
