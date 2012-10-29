@@ -3,7 +3,7 @@
 
 <p>Library for delivering images based on screen size. Uses Modernizrs mq() for detecting breakpoints falling back to standard JS .innerwidth for getting screen size.</p>
 
-<p>It can support as many breakpoints as you need just at the required width as a data attribute. </p>
+<p>It can support as many breakpoints as you need just add the required width as a data attribute. </p>
 
 <h3>Installation</h3>
 
