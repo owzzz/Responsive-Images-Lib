@@ -26,17 +26,17 @@
 			};
 
 			var getBrowserSize = function() {
-				
+
 				if(Modernizr.mq && (window.APPNAMESPACE.Utils.getIEVersion() === -1) ){
 					for (var key in defaults){
-						if (key !== "elemType" && Modernizr.mq('only screen and (max-width: ' + key + 'px)')) {
+						if (parseInt(key) !== NaN && Modernizr.mq('only screen and (max-width: ' + key + 'px)')) {
 							setImage(defaults[key]);
 							break;
 						} 
 					}
 				} else {
 					for (var key in defaults){
-						if (key !== "elemType" && getScreenWidth() <= parseInt(key)) {
+						if (parseInt(key) !== NaN && getScreenWidth() <= parseInt(key)) {
 							setImage(defaults[key]);
 							break;
 						} 
@@ -74,6 +74,7 @@
 		var $responsiveImages = $('.responsive-image');
 		if($responsiveImages){
 			$responsiveImages.each(function(i, elem) {
+				console.log($(elem).data());
 				window.APPNAMESPACE.Responsive[i] = new ResponsiveImages(elem, $(elem).data());
 			});
 		}
