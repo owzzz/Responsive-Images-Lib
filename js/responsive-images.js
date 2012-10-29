@@ -74,7 +74,6 @@
 		var $responsiveImages = $('.responsive-image');
 		if($responsiveImages){
 			$responsiveImages.each(function(i, elem) {
-				console.log($(elem).data());
 				window.APPNAMESPACE.Responsive[i] = new ResponsiveImages(elem, $(elem).data());
 			});
 		}
