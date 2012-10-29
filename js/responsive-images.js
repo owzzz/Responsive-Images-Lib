@@ -7,13 +7,7 @@
 		var ResponsiveImages = function(elem, options) {
 			var $this = $(elem);
 
-			var defaults = {
-				threetwenty: "",
-				sevensixeight: "",
-				tentwentyfour: "",
-				twelvetwenty: "",
-				fourteenfourty: ""
-			};
+			var defaults = {};
 
 			if(options) {
 				defaults = $.extend({}, defaults, options);
@@ -32,36 +26,21 @@
 			};
 
 			var getBrowserSize = function() {
-				//Check to see if matchmedia lib is loaded and that the current browser is supported
-				if( window.matchMedia && (window.APPNAMESPACE.Utils.getIEVersion() === -1) ){
-					if (matchMedia('only screen and (max-width: 320px)').matches) {
-						  setImage(defaults["threetwenty"]);
-					} else if (matchMedia('only screen and (max-width: 768px)').matches) {
-						  setImage(defaults["sevensixeight"]);
-					} else if (matchMedia('only screen and (max-width: 1024px)').matches) {
-						 setImage(defaults["tentwentyfour"]);
-					} else if (matchMedia('only screen and (max-width: 1220px)').matches) {
-						  setImage(defaults["twelvetwenty"]);
-					} else if (matchMedia('only screen and (max-width: 1440px)').matches) {
-						 setImage(defaults["fourteenforty"]);
+				
+				if(Modernizr.mq && (window.APPNAMESPACE.Utils.getIEVersion() === -1) ){
+					for (var key in defaults){
+						if (key !== "elemType" && Modernizr.mq('only screen and (max-width: ' + key + 'px)')) {
+							setImage(defaults[key]);
+							break;
+						} 
 					}
 				} else {
-					//This is probably IE so use standard JS to detect screensize
-					if (getScreenWidth() <= 320) {
-						setImage(defaults["threetwenty"]);
-					} 
-					if (getScreenWidth() <= 768) {
-						setImage(defaults["sevensixeight"]);
-					} 
-					if (getScreenWidth() <= 1024) {
-						setImage(defaults["tentwentyfour"]);
-					} 
-					if (getScreenWidth() <= 1220) {
-						setImage(defaults["twelvetwenty"]);
-					} 
-					if (getScreenWidth() <= 1440) {
-						setImage(defaults["fourteenforty"]);
-					} 
+					for (var key in defaults){
+						if (key !== "elemType" && getScreenWidth() <= parseInt(key)) {
+							setImage(defaults[key]);
+							break;
+						} 
+					}
 				}
 
 			};
