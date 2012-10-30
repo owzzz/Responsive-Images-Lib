@@ -103,8 +103,8 @@
 
 
 			var initalise = function() {
-				setElemType(elem);
 				bindEvents();
+				setElemType(elem);
 			}();
 
 			return {
