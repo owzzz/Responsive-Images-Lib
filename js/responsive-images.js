@@ -30,10 +30,11 @@
 			    return arr;
 			}
 
+			//Sort Ordering break points (Lowest Break point first)
 			var sortedImages = sortObject(defaults);
 
 			var setElemType = function (elem) {
-				($this.is('img')) ? defaults.elemType = "img" : defaults.elemType = "bgImg";
+				(elem.nodeName === "IMG") ? defaults.elemType = "img" : defaults.elemType = "bgImg";
 			};
 
 			var getElemType = function() {
