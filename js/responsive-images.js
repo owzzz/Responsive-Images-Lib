@@ -89,11 +89,11 @@
 					window.addEventListener( "DOMContentLoaded", function(){
 						getBrowserSize();
 						window.removeEventListener( "load", getBrowserSize, false );
-						
+
 					}, false );
 					window.addEventListener( "load", getBrowserSize, false );
 				}
-				else if( w.attachEvent ){
+				else if( window.attachEvent ){
 					window.attachEvent( "onload", getBrowserSize );
 				} else {
 					$(window).resize(getBrowserSize);
