@@ -13,6 +13,25 @@
 				defaults = $.extend({}, defaults, options);
 			}
 
+			var sortObject = function (obj) {
+			    var arr = [];
+			    var prop;
+			    for (prop in obj) {
+			        if (obj.hasOwnProperty(prop)) {
+			            arr.push({
+			                "key": obj[prop],
+			                "value" : prop
+			            });
+			        }
+			    }
+			    arr.sort(function(a, b) {
+			        return a.value - b.value;
+			    });
+			    return arr;
+			}
+
+			var sortedImages = sortObject(defaults);
+
 			var setElemType = function (elem) {
 				($this.is('img')) ? defaults.elemType = "img" : defaults.elemType = "bgImg";
 			};
@@ -27,12 +46,12 @@
 
 			var getBrowserSize = function() {
 				if(Modernizr.mq && (window.APPNAMESPACE.Utils.getIEVersion() === -1) ){
-					for (var key in defaults){
-						if (parseInt(key) !== NaN && Modernizr.mq('only screen and (max-width: ' + key + 'px)')) {
-							setImage(defaults[key]);
+					for (var i = 0, images = sortedImages, len = images.length; i < len; i++) {
+					   if (parseInt(images[i]['value']) !== NaN && Modernizr.mq('only screen and (max-width: ' + images[i]['value'] + 'px)')) {
+							setImage(images[i]['key']);
 							break;
 						} 
-					}
+					};
 				} else {
 					for (var key in defaults){
 						if (parseInt(key) !== NaN && getScreenWidth() <= parseInt(key)) {
@@ -49,7 +68,7 @@
 					//TODO : Add support for Retina Images
 				} 
 				if(defaults.elemType === "img") {
-					$this.attr('src', imagePath);
+					elem.src = imagePath;
 				} else {
 					$this.css("background-image", "url(" + imagePath + ")");
 				}
