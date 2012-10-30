@@ -71,7 +71,7 @@
 				if(defaults.elemType === "img") {
 					elem.src = imagePath;
 				} else {
-					$this.css("background-image", "url(" + imagePath + ")");
+					elem.style.backgroundImage = "url(" + imagePath + ")";
 				}
 			};
 
