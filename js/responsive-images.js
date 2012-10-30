@@ -42,7 +42,7 @@
 			};
 
 			var getScreenWidth = function() {
-				return window.innerWidth;
+				return window.innerWidth || document.body.clientWidth || document.documentElement.clientWidth;
 			};
 
 			var getBrowserSize = function() {
@@ -54,9 +54,9 @@
 						} 
 					};
 				} else {
-					for (var key in defaults){
-						if (parseInt(key) !== NaN && getScreenWidth() <= parseInt(key)) {
-							setImage(defaults[key]);
+					for (var i = 0, images = sortedImages, len = images.length; i < len; i++) {
+						if (parseInt(images[i]['value']) !== NaN && getScreenWidth() <= parseInt(images[i]['value'])) {
+							setImage(images[i]['key']);
 							break;
 						} 
 					}
