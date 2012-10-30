@@ -84,13 +84,26 @@
 			};
 
 			var bindEvents = function() {
-				$(window).resize(getBrowserSize);
+				if( window.addEventListener ){
+					window.addEventListener( "resize", getBrowserSize, false );
+					window.addEventListener( "DOMContentLoaded", function(){
+						getBrowserSize();
+						window.removeEventListener( "load", getBrowserSize, false );
+						
+					}, false );
+					window.addEventListener( "load", getBrowserSize, false );
+				}
+				else if( w.attachEvent ){
+					window.attachEvent( "onload", getBrowserSize );
+				} else {
+					$(window).resize(getBrowserSize);
+				}
+				
 			};
 
 
 			var initalise = function() {
 				setElemType(elem);
-				getBrowserSize();
 				bindEvents();
 			}();
 
