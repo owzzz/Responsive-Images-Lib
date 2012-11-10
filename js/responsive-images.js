@@ -9,9 +9,9 @@
 
 			var defaults = {};
 
-			if(options) {
-				defaults = $.extend({}, defaults, options);
-			}
+			if(options) 
+			    defaults = $.extend({}, defaults, options);
+			
 
 			var sortObject = function (obj) {
 			    var arr = [];
@@ -76,11 +76,10 @@
 			};
 
 			var getPixelRatio = function() {
-				if(window.devicePixelRatio) {
-					return window.devicePixelRatio;
-				} else {
-					return -1;
-				}
+				if(window.devicePixelRatio) 
+				    return window.devicePixelRatio;
+					
+				return -1;
 			};
 
 			var bindEvents = function() {
