@@ -17,12 +17,11 @@
 			    var arr = [];
 			    var prop;
 			    for (prop in obj) {
-			        if (obj.hasOwnProperty(prop)) {
+			        if (obj.hasOwnProperty(prop))
 			            arr.push({
 			                "key": obj[prop],
 			                "value" : prop
 			            });
-			        }
 			    }
 			    arr.sort(function(a, b) {
 			        return a.value - b.value;
