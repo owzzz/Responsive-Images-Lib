@@ -113,8 +113,8 @@
 		};
 
 	var getResponsiveImages = (function() {
-		var $responsiveImages = $('.responsive-image');
-		if($responsiveImages){
+		var responsiveImages = document.getElementByClassName('responsive-image');
+		if(responsiveImages){
 			for (var i = 0, elem = $responsiveImages, len = elem.length; i < len; i++) {
 			   window.APPNAMESPACE.Responsive[i] = new ResponsiveImages(elem[i], $(elem).data());
 			};
