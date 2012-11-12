@@ -1,9 +1,6 @@
 (function(window, document, $, undefined){
 	'use strict';
 
-	window.APPNAMESPACE = window.APPNAMESPACE || {};
-	window.APPNAMESPACE.Responsive = window.APPNAMESPACE.Responsive || {};
-
 		var ResponsiveImages = function(elem, options) {
 			var $this = $(elem);
 
@@ -116,7 +113,7 @@
 		var responsiveImages = document.getElementsByClassName('responsive-image');
 		if(responsiveImages){
 			for (var i = 0, elem = $responsiveImages, len = elem.length; i < len; i++) {
-			   window.APPNAMESPACE.Responsive[i] = new ResponsiveImages(elem[i], $(elem).data());
+			   window.Responsive[i] = new ResponsiveImages(elem[i], $(elem).data());
 			};
 		}
 	})();
