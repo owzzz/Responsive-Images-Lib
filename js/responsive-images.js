@@ -113,7 +113,7 @@
 		var responsiveImages = document.getElementsByClassName('responsive-image');
 		if(responsiveImages){
 			for (var i = 0, elem = $responsiveImages, len = elem.length; i < len; i++) {
-			   window.Responsive[i] = new ResponsiveImages(elem[i], $(elem).data());
+			   window.Responsive[i] = new ResponsiveImages(elem[i], $(elem[i]).data());
 			};
 		}
 	})();
