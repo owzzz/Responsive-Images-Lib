@@ -42,7 +42,7 @@
 			};
 
 			var getBrowserSize = function() {
-				if(Modernizr.mq && (window.APPNAMESPACE.Utils.getIEVersion() === -1) ){
+				if(Modernizr && Modernizr.mq){
 					for (var i = 0, images = sortedImages, len = images.length; i < len; i++) {
 					   if (parseInt(images[i]['value']) !== NaN && Modernizr.mq('only screen and (max-width: ' + images[i]['value'] + 'px)')) {
 							setImage(images[i]['key']);
